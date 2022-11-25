@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  grasscutter:
+    image: ayay2021/grasscutter
+    container_name: grasscutter
+    build: ./
+    #volumes:
+    #  - ./grasscutter-data:/app
+    depends_on:
+      - mongodb_grasscutter
+    restart: unless-stopped
+
+  mongodb_grasscutter:
+    container_name: mongodb_grasscutter
+    image: mongo
+    restart: unless-stopped
